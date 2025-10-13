@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Checkpoint
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: 6752572115960703535, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: -8186340411956329309, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: -8836555872769380543, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: -6166410889150529206, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: 7552546809970119965, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: 1091657029104797108, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: 5599914612931217540, guid: eac652394846e434ca26667a94d4d5a2, type: 3}
+  - {fileID: 1528421868829524890, guid: 09a90d799ced5fe4697e7ce8730a981c, type: 3}
+  - {fileID: -565274809511578099, guid: 09a90d799ced5fe4697e7ce8730a981c, type: 3}
+  - {fileID: 4739182151891643601, guid: 09a90d799ced5fe4697e7ce8730a981c, type: 3}
+  - {fileID: -103842674756551833, guid: 09a90d799ced5fe4697e7ce8730a981c, type: 3}
+  - {fileID: 3845322876205827078, guid: b9121b22f8313a043b5a20740414ef79, type: 3}
+  - {fileID: 2784303782069980444, guid: b9121b22f8313a043b5a20740414ef79, type: 3}
+  - {fileID: 2372158406276770649, guid: b9121b22f8313a043b5a20740414ef79, type: 3}
+  - {fileID: 2698572996460960633, guid: b9121b22f8313a043b5a20740414ef79, type: 3}
+  m_MinSpeed: 1.5
+  m_MaxSpeed: 1.5
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
