@@ -29,6 +29,10 @@ public class DoorGateTrigger2D : MonoBehaviour
     [Header("Detect")]
     public string playerTag = "Player";
 
+    [Header("Audio")]   
+    public AudioSource audioSource;
+    public AudioClip doorSound;
+
     enum DoorState { Closed, Opening, Open, Closing }
     DoorState _state = DoorState.Closed;
 
@@ -39,7 +43,8 @@ public class DoorGateTrigger2D : MonoBehaviour
     int _insideCount;
     float _exitTime;
     bool _pendingClose;
-
+    bool _playerInside;
+        
     int _openHash, _closeHash, _lastPlayedHash = 0;
 
     void Reset()
@@ -68,19 +73,27 @@ public class DoorGateTrigger2D : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag(playerTag)) return;
+        if (!other.CompareTag(playerTag)) return;   
         _insideCount++;
         _pendingClose = false;
-
-        if (_state == DoorState.Closed || _state == DoorState.Closing)
-            BeginOpen();
+        _playerInside = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
+        _playerInside = false;
         _insideCount = Mathf.Max(0, _insideCount - 1);
         if (_insideCount == 0) { _exitTime = Time.time; _pendingClose = true; }
+    }
+
+    void Update()
+    {
+        if (_playerInside && Input.GetKey(KeyCode.Space))
+        {
+            if (_state == DoorState.Closed || _state == DoorState.Closing)
+                BeginOpen();
+        }
     }
 
     void FixedUpdate()
@@ -113,6 +126,12 @@ public class DoorGateTrigger2D : MonoBehaviour
         if (useDirectCrossFade) CrossFadeOnce(_openHash);
         SetBool(closeParam, false);
         SetBool(openParam, true);
+            
+        if (audioSource && doorSound)
+        {
+            audioSource.clip = doorSound;
+            audioSource.Play();
+        }
     }
 
     void BeginClose()
@@ -121,6 +140,12 @@ public class DoorGateTrigger2D : MonoBehaviour
         if (useDirectCrossFade) CrossFadeOnce(_closeHash);
         SetBool(openParam, false);
         SetBool(closeParam, true);
+
+        if (audioSource && doorSound)
+        {
+            audioSource.clip = doorSound;
+            audioSource.Play();
+        }
     }
 
     void CrossFadeOnce(int stateHash)
